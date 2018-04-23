@@ -28,9 +28,9 @@ const App = ({ handleSelectTab, activeKey }) => (
     </Nav>
     <TabContent activeKey={activeKey}>
       <TabPane eventKey="No HoCs">
-        <h2>
+        <div>
           <NoHoC />
-        </h2>
+        </div>
       </TabPane>
       <TabPane eventKey="LiftStatesUp">
         <LiftStatesUp />

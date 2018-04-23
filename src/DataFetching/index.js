@@ -1,8 +1,8 @@
 import React from 'react';
-import { 
-  compose, 
-  withReducer, 
-  withProps, 
+import {
+  compose,
+  withReducer,
+  withProps,
   withHandlers,
   branch,
   renderComponent,
@@ -17,7 +17,7 @@ import InlineErrorMessage from '../components/InlineErrorMessage';
 import Loader from '../components/Loader';
 import { Button } from '../components/Buttons';
 
-import authReducer, { 
+import authReducer, {
   initialState,
   actionTypes
 } from './authReducer';
@@ -28,19 +28,19 @@ const Logout = ({ auth, handleLoginSubmit }) => (
     <form onSubmit={handleLoginSubmit}>
       <div style={{ width: '60%', marginBottom: 36 }}>
         <h5>Account</h5>
-        <input 
+        <input
           type="text"
           name="account"
-          className="form-control" 
+          className="form-control"
         />
         <h5>Password</h5>
-        <input 
+        <input
           type="password"
           name="password"
-          className="form-control" 
+          className="form-control"
         />
       </div>
-      <Button 
+      <Button
         btnStyle="primary"
         type="submit"
         disabled={auth.isLogging}
@@ -58,9 +58,9 @@ const Logout = ({ auth, handleLoginSubmit }) => (
 
 export default compose(
   withReducer(
-    'auth', 
-    'dispatch', 
-    authReducer, 
+    'auth',
+    'dispatch',
+    authReducer,
     initialState
   ),
   withHandlers({
@@ -91,10 +91,10 @@ export default compose(
   )
 )(Logout);
 
-/** 
- * 
+/**
+ *
  * helpers
- * 
+ *
  **/
 
 const fetchUser = (credentials, dispatch) => {
@@ -137,7 +137,7 @@ const login = (credentials, dispatch) => {
 const LoadingButton = branch(
   ({ isLogging }) => isLogging,
   renderComponent(
-    () => 
+    () =>
       <span>
         <Loader size="sm" /> Submitting
       </span>
